@@ -58,10 +58,10 @@ SoapyAudio::SoapyAudio(const SoapySDR::Kwargs &args)
         
         int numDevices = dac.getDeviceCount();
         
-        if (deviceId < 0 || deviceId >= numDevices)
+        if (deviceId < 0)
         {
             throw std::runtime_error(
-                    "device_id out of range [0 .. " + std::to_string(numDevices) + "].");
+                    "device_id out of range (< 0)");
         }
   
         SoapySDR_logf(SOAPY_SDR_DEBUG, "Found Audio device using 'device_id' = %d", deviceId);
